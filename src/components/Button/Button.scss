@@ -1,0 +1,10 @@
+.button.validation, .button.disabled {
+    margin: 0 auto;
+}
+
+.button.disabled {
+    background-color: rgb(212, 212, 212);
+    border: 1px solid rgb(179, 179, 179);
+    color: grey;
+    cursor: default;
+}

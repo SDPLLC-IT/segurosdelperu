@@ -1,0 +1,73 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --main-ultra-light: rgb(232, 240, 255);
+  --main-light: #cfe0ff;
+  --main-light-opac90: rgba(207, 224, 255,0.90);
+  --main: #A7E6FF;
+  --secondary: #4d54ce;
+  --secondary-dark: rgb(5, 12, 156);
+  --secondary-light: rgb(189, 193, 253);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin-top: 120px;
+  background-color: rgb(241, 241, 241);
+  color: rgb(82, 81, 99);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.button {
+  display: block;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  margin: 30px 0;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--secondary-light);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.button:hover {
+  border-color: var(--secondary-dark);
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+p {
+  margin: 15px 0;
+}
+
+h2 {
+  margin: 25px 0;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+li {
+  margin: 14px 0;
+}
+
+main {
+  margin-top: 200px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+}
