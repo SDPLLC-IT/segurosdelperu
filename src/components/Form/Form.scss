@@ -76,6 +76,14 @@
 }
 
 .small {
-    font-size: .5rem;
     color: grey;
+    font-size: .5rem;
+    font-weight: 500;
+    text-align: left;
+
+    &--cert {
+        color: rgb(243, 149, 149);
+        font-size: .6rem;
+        font-weight: bold;
+    }
 }

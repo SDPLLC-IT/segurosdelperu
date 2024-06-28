@@ -41,9 +41,7 @@ export const Form = ({type}) => {
 
     const handleSubmit = (event) => { 
         event.preventDefault()
-        console.log("submission attempt...", data)
         if(dataValidation(data)){
-            console.log("submitting valid data...")
             setDataValidated(true)
         }
     }
@@ -52,7 +50,6 @@ export const Form = ({type}) => {
         const min = 1000;
         const max = 3000;
         const time = (min) + (max - min) * Math.random()
-        console.log(time)
 
         if(dataValidated) {
             setIsValidating(true);

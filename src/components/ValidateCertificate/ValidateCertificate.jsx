@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './ValidateCertificate.scss'
 import { Button } from "../Button/Button";
+import certificateImage from '../../assets/certif.png'
 
 export const ValidateCertificate = () => {
     const [resultId, setResultId] = useState("");
@@ -9,6 +10,7 @@ export const ValidateCertificate = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isValidating, setIsValidating] = useState(false);
+    const [isImageShown, setIsImageShown] = useState(false);
 
     // Data retrieved from the data base
     const certificates = [
@@ -48,7 +50,6 @@ export const ValidateCertificate = () => {
             return false;
         } else {
             const certificateId = certificates.findIndex(certificate => certificate.id === certificateValue)
-            console.log(certificateId)
             if(certificateId === -1) {
                 return false;
             }
@@ -109,21 +110,33 @@ export const ValidateCertificate = () => {
         }
     }, [isSubmitted])
 
+    const handleMouseEnter = (event) => {
+        setIsImageShown(true)
+    }
+
+    const handleMouseLeave = (event) => {
+        setIsImageShown(false)
+    }
+
     
     return(
         <>
             <h2>Aquí podrás validar la autenticidad del certificado SCTR</h2>
             <form onSubmit={handleSubmit} className="form__certificate">
-                <div>
-                    <label htmlFor="certificate">Ingrese el id del certificado:</label>
-                    <input id="certificate"type="text" onChange={handleChange} name="certificate" required placeholder="Coloca el id del certificado"/>
+                <div className="form-container">
+                    <div>
+                        <label htmlFor="certificate">Ingrese el id del certificado:</label>
+                        <p className="small small--cert">¿Donde encuentro el id del certificado? <span className="info" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}></span></p>
+                        {isImageShown && (<img src={certificateImage} alt="Imagen del id del certificado" width="300" className="image"/>)}
+                        <input id="certificate"type="text" onChange={handleChange} name="certificate" required placeholder="Coloca el id del certificado"/>
+                    </div>
+                    <Button>{isValidating ? "Validando" : "Validar"}</Button>
+                    {isValidating ? <div className="lds-dual-ring"></div> : (
+                        errorMessage ? (<p className="message message--error">{errorMessage}</p>) : (
+                            successMessage && (<p className="message message--success">{successMessage}</p>)
+                        )
+                    )}
                 </div>
-                <Button>{isValidating ? "Validando" : "Validar"}</Button>
-                {isValidating ? <div className="lds-dual-ring"></div> : (
-                    errorMessage ? (<p className="message message--error">{errorMessage}</p>) : (
-                        successMessage && (<p className="message message--success">{successMessage}</p>)
-                    )
-                )}
             </form>
         </>
     );
