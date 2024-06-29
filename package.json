@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "postbuild": "echo '<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0; url=/\" /><script>window.location.href = \"/validar-certificado\";</script></head><body></body></html>' > dist/404.html",
+    "postbuild": "echo '<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0; url=/\" /><script>window.location.href = \"/\";</script></head><body></body></html>' > dist/404.html",
     "predeploy": "npm run build && npm run postbuild && echo 'www.segurosdelperu.com' > dist/CNAME",
     "deploy": "gh-pages -d dist"
   },

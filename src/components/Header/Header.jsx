@@ -13,7 +13,7 @@ export const Header = () => {
                     <li className="nav__item"><Link className='nav__link' to="/cotiza">Cotiza SCTR</Link></li>
                     <li className="nav__item"><Link className='nav__link' to="/contacto">Contacto</Link></li>
                     <li className="nav__item"><Link className='nav__link' to="/afiliados">Programa de Afiliados</Link></li>
-                    <li className="nav__item"><Link className='nav__link' to="/validar-certificado">Validar certificado</Link></li>
+                    <li className="nav__item"><Link className='nav__link nav__link--validate' to="/validar-certificado">Validar certificado</Link></li>
                 </ul>
             </nav>
         </header>

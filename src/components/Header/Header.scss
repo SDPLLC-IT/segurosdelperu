@@ -50,5 +50,14 @@ header {
 
     &__link {
         text-decoration: none;
+
+        &--validate {
+            color: var(--secondary-dark);
+            font-weight: bold;
+
+            &:hover {
+                color: black;
+            }
+        }
     }
 }
