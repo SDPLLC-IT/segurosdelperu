@@ -35,7 +35,7 @@ export const Home = ({type}) => {
         (
             <>
                 <h1>Seguros del Peru</h1>
-                <h2>Somos una empresa dedicada a proporcionar el servicio de aseguramiento (SCTR)</h2>
+                <h2>Somos una empresa con más de 5 años en la industria dedicada a proporcionar el servicio de aseguramiento (SCTR)</h2>
                 <p>El SCTR es un seguro obligatorio en muchos países, diseñado para proteger a los trabajadores que realizan actividades consideradas de alto riesgo, como la minería, la construcción, la industria pesada, entre otras. Este seguro complementa la cobertura que proporciona el seguro de salud estándar, ofreciendo beneficios adicionales específicos para accidentes de trabajo y enfermedades profesionales.</p>
                 
                 <h3>Nuestros Valores:</h3>
