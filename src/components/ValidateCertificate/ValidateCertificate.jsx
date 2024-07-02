@@ -4,7 +4,7 @@ import { Button } from "../Button/Button";
 import certificateImage from '../../assets/certif.png'
 
 export const ValidateCertificate = () => {
-    const [resultId, setResultId] = useState("");
+    const [resultIdx, setresultIdx] = useState("");
     const [certificateValue, setCertificateValue] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -14,7 +14,7 @@ export const ValidateCertificate = () => {
 
     // Data retrieved from the data base
     const certificates = [
-        { id: "nOp2QrStUvWxYz", company: "Minería y Construcción SAC" },
+        { id: "nOp2QrStUvWxYz", company: "Minería y Construcción S.A.C" },
         { id: "5678AbCdEfGhIj", company: "Industrias Metalúrgicas del Mar S.A." },
         { id: "LMnopQRsTuVwXy", company: "Consultora Legal Hermanos Pérez" },
         { id: "1234dEfGh5678i", company: "Transportes El Veloz EIRL" },
@@ -24,7 +24,7 @@ export const ValidateCertificate = () => {
         { id: "tUvWxYzAbxwsfG", company: "Compañía Agrícola San José Ltda." },
         { id: "hIjKlM5678nOpQ", company: "Tecnología Avanzada Gómez & Cía." },
         { id: "sTuVwXyZ1234Ab", company: "Productos Alimenticios Gourmet S.A." },
-        { id: "aB3cdE5FgHiJkL", company: "Black BBC Out S.A.C" },
+        { id: "aB3cdE5FgHiJkL", company: "Black BBC Out S.A.C." },
         { id: "nO22QrStxvWxYz", company: "Importaciones Internacionales del Peru SRL" },
         { id: "52gopbCdEfGhIj", company: "Servicios Financieros Inversiones Concha SAC" },
         { id: "LMnox3tfTuVwXy", company: "Distribuidora de Electrodomésticos y más S.A." },
@@ -33,6 +33,7 @@ export const ValidateCertificate = () => {
         { id: "xYz02wgtw678Ab", company: "Inversiones Inmobiliarias Rivas Pinedo S.A.C." },
         { id: "DfGhIsssMnOpQr", company: "Clínica Dental Sonrisas Felices S.R.L." },
         { id: "tUvWxYzAbCDEfG", company: "Almacenes y Distribuciones San José Ltda." },
+        { id: "s9v3xY4aZxDWfg", company: "Logistica en general El Dorado Peru S.A.C." },
         { id: "aIjKlM49o8nOpQ", company: "Empresa de Tecnología Innovadora Gómez & Cía." }
       ];
       
@@ -42,7 +43,7 @@ export const ValidateCertificate = () => {
         setErrorMessage("")
         setIsSubmitted(false)
         setSuccessMessage("")
-        setResultId("")
+        setresultIdx("")
     }
 
     const isCertificateValueValid = (certificateValue) => {
@@ -53,7 +54,7 @@ export const ValidateCertificate = () => {
             if(certificateId === -1) {
                 return false;
             }
-            setResultId(certificateId)
+            setresultIdx(certificateId)
         }
         return true;
     }
@@ -68,26 +69,34 @@ export const ValidateCertificate = () => {
         let day = today.getDate();
         let month = today.getMonth();
         let year = today.getFullYear();
+        let upperDayLimit;
+        
+        if(certificates[resultIdx].id.includes("3xY4aZxDWf")) {
+            upperDayLimit = 1;
+        } 
+        if(certificates[resultIdx].id.includes("3cdE5FgHi")) {
+            upperDayLimit = 13;
+        }
 
         const formatDate = (y,m,d) => {
             const date = new Date(y,m,d)
             return `${date.getDate()}/${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}/${date.getFullYear()}`
         }
 
-        if (day <= 13) {
-            return formatDate(year, month, 13);
+        if (day <= upperDayLimit) {
+            return formatDate(year, month, upperDayLimit);
         } else if(month < 11){
-                return formatDate(year, month + 1, 13);
+                return formatDate(year, month + 1, upperDayLimit);
           } else {
-            return formatDate(year + 1, 0, 13);
+            return formatDate(year + 1, 0, upperDayLimit);
           }        
     }
 
     useEffect(() => {
-        if(resultId) {
-            setSuccessMessage(`El certificado es auténtico, pertenece a ${certificates[resultId].company}. Valido hasta el ${validDate()}`)
+        if(resultIdx) {
+            setSuccessMessage(`Este certificado pertenece a ${certificates[resultIdx].company.toUpperCase()}, válido hasta el ${validDate()}`)
         }
-    }, [resultId]);
+    }, [resultIdx]);
 
 
     useEffect(() => {

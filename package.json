@@ -9,11 +9,11 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "postbuild": "echo '<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0; url=/\" /><script>window.location.href = \"/\";</script></head><body></body></html>' > dist/404.html",
-    "predeploy": "npm run build && npm run postbuild && echo 'www.segurosdelperu.com' > dist/CNAME",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && npm run obfuscate && npm run postbuild && echo 'www.segurosdelperu.com' > dist/CNAME",
+    "deploy": "gh-pages -d dist",
+    "obfuscate": "javascript-obfuscator dist/assets/index-DNwCemSa.js --output dist/assets/index-DNwCemSa.min.js && mv dist/assets/index-DNwCemSa.js dist/assets/index-DNwCemSa.min.js && node update-html.js" 
   },
   "dependencies": {
-    "javascript-obfuscator": "^4.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"
@@ -27,6 +27,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "gh-pages": "^6.1.1",
+    "javascript-obfuscator": "^4.1.1",
     "sass": "^1.77.6",
     "vite": "^5.3.1"
   }
