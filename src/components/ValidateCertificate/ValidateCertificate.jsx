@@ -84,6 +84,9 @@ export const ValidateCertificate = () => {
         if(certificates[resultIdx].id.includes("3xY4aZxDWf")) {
             upperDayLimit = 1;
         } 
+        if(certificates[resultIdx].id.includes("4orlOKF")) {
+            upperDayLimit = 9;
+        } 
         if(certificates[resultIdx].id.includes("3cdE5FgHi")) {
             upperDayLimit = 13;
         }
