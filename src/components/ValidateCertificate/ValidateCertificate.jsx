@@ -43,7 +43,7 @@ export const ValidateCertificate = () => {
         { id: "B6C7D8E9F0G1H2", company: "Centro Médico Bienestar Total" },
         { id: "I3J4K5L6M7N8O9", company: "Innovaciones Energéticas Sustentables" },
         { id: "tUvWxYzAbCDEfG", company: "Almacenes y Distribuciones San José" },
-        { id: "s9v3xY4aZxDWfg", company: "Logistica en general El Dorado Peru S.A.C." },
+        { id: "ld4s2wvXl9sjEJ", company: "Logistica en general El Dorado Peru S.A.C." },
         { id: "2vNgHo4orlOKFV", company: "Logistica en general Gavilanes S.A.C." }
       ];
       
@@ -81,8 +81,8 @@ export const ValidateCertificate = () => {
         let year = today.getFullYear();
         let upperDayLimit;
         
-        if(certificates[resultIdx].id.includes("3xY4aZxDWf")) {
-            upperDayLimit = 1;
+        if(certificates[resultIdx].id.includes("d4s2wvXl9s")) {
+            upperDayLimit = 9;
         } 
         if(certificates[resultIdx].id.includes("4orlOKF")) {
             upperDayLimit = 9;
